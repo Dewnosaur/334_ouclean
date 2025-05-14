@@ -1,0 +1,24 @@
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./ouclean:/code
+    ports:
+      - "8001:8000"
+    environment:
+      - DEBUG=1
+    # Uncomment if you use a database other than SQLite
+    # depends_on:
+    #   - db
+
+# Example for PostgreSQL (optional, not needed for SQLite)
+#  db:
+#    image: postgres:15
+#    environment:
+#      POSTGRES_DB: ouclear
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: postgres
+#    ports:
+#      - "5432:5432"
